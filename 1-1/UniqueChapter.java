@@ -1,10 +1,12 @@
 import java.util.Arrays;
 
 public class UniqueChapter{
-   //0.假设字符集是ASCII字符，那么我们可以开一个大小为256的boolean数组来表征每个字符的出现。数组初始化为false，遍历一遍字符串中的字符，当bool数组对应位置的值为真， 表明该字符在之前已经出现过，即可得出该字符串中有重复字符。否则将该位置的bool数组 值置为true。
+   //0.假设字符集是ASCII字符，那么我们可以开一个大小为256的boolean数组来表征每个字符的出现。数组初始化为false，
+   //遍历一遍字符串中的字符，当bool数组对应位置的值为真， 表明该字符在之前已经出现过，即可得出该字符串中有重复字符。
+   //否则将该位置的bool数组 值置为true。
    //Time:O(n) Space:O(1) (256是常量)
  public static boolean isUnique(String str){  
-	  boolean []char_set=new boolean[256];  
+   boolean []char_set=new boolean[256];  
    for(int i=0;i<str.length();i++){
     int val=str.charAt(i);
     if(char_set[val])
@@ -15,12 +17,12 @@ public class UniqueChapter{
 }
 //只有a-z（or A-Z）,位运算
 //Time:O(n) Space:O(1)
-   public static boolean isUnique1(String str){ 
+public static boolean isUnique1(String str){ 
      int checker=0;   //相当于之前的boolean
      for(int i=0;i<str.length();i++){
       int val=str.charAt(i)-'a';
       if((checker & (1<<val))>0)  //如果等于0就说明2者32位中没有一位是相同的，所以是unique，反之不是。
-        return false;
+      return false;
       checker |=(1<<val);    //通过checker|（1<<val）把目前是unique的字符在checker上做一个位标记
     }
     return true;
