@@ -8,6 +8,8 @@ public class UniqueChapter{
    //否则将该位置的bool数组 值置为true。
    //Time:O(n) Space:O(1) (256是常量)
  public static boolean isUnique(String str){  
+   if(str.length()>256)               //字符长度大于256必有重复
+   return false;
    boolean []char_set=new boolean[256];  
    for(int i=0;i<str.length();i++){
     int val=str.charAt(i);
@@ -32,6 +34,8 @@ public static boolean isUnique1(String str){
 //ASCII-位运算
 //Time:O(n) Space:O(1)
   public static boolean isUnique2(String str){
+    if(str.length()>256)
+      return false;
    int[] checker=new int[8];      //1个int=32bit（位），32*8=256
    for(int i=0;i<str.length();i++){
     int arr_index=str.charAt(i)/32;  //这个字符的ASCII码在数组中的索引（第几个int）
