@@ -2,7 +2,7 @@
 
 import java.util.Arrays;
 
-public class UniqueChapter{
+public class Solution{
    //0.假设字符集是ASCII字符，那么我们可以开一个大小为256的boolean数组来表征每个字符的出现。数组初始化为false，
    //遍历一遍字符串中的字符，当bool数组对应位置的值为真， 表明该字符在之前已经出现过，即可得出该字符串中有重复字符。
    //否则将该位置的bool数组 值置为true。

@@ -2,7 +2,7 @@
 //本题所做的优化操作是，首先判断两个字符串的长度是否一致，然后再进行比较
 import java.util.Arrays;
 
-public class Permutation{
+public class Solution{
     //1.因为如果两个字符串是anagrams，那么他们只是字符排列顺序不同，包含的字符是一样的，所以排序后会是顺序一样，
     //所以只比较排序后的字符串即可，这个办法虽然效率不是最高，最大的好处就是简单易读，也是实际中最常用的。
     public static String sort(String str){
