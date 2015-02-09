@@ -1,5 +1,6 @@
 //本题是顺时针旋转，没有更优化的解法了，因为所符号有方法都必须访问所有元素（NXN）
 //Time：O(n*n) Space:O(1)
+import CtCILibrary.*;
 public class Solution{
 	public static void rotate(int[][]matrix,int n){
 		for(int layer=0;layer<n/2;++layer){      //layer表示当前所处理的层数，layer=0表示从外层向内层做旋转处理，一共有n/2层
@@ -14,6 +15,13 @@ public class Solution{
             	matrix[i][last]=top;
             }
         }
+    }
+    public static void main(String[] args) {
+        int[][] matrix = AssortedMethods.randomMatrix(10, 10, 0, 9);
+        AssortedMethods.printMatrix(matrix);
+        rotate(matrix, 10);
+        System.out.println();
+        AssortedMethods.printMatrix(matrix);
     }
     
 }
