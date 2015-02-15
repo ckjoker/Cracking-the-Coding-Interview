@@ -179,3 +179,74 @@ public boolean strCopies(String str, String sub, int n) {
     return strCopies(str.substring(1),sub,n-1);//注意不要写成str.substring(sub.length())因为会有上述example最后一例特殊情况(题目说可以overlap)
   return strCopies(str.substring(1),sub,n);
 }
+/**
+
+Given an array of ints, is it possible to choose a group of some of the ints, such that the group sums to the given target, with this additional constraint: if there are numbers in the array that are adjacent and the identical value, they must either all be chosen, or none of them chosen. For example, with the array {1, 2, 2, 2, 5, 2}, either all three 2's in the middle must be chosen or not, all as a group. (one loop can be used to find the extent of the identical values). 
+
+groupSumClump(0, {2, 4, 8}, 10) → true
+groupSumClump(0, {1, 2, 4, 8, 1}, 14) → true
+groupSumClump(0, {2, 4, 4, 8}, 14) → false
+*/
+public boolean groupSumClump(int start, int[] nums, int target) {
+    if(start>=nums.length)
+      return target==0;
+    int count=1;
+    int val=nums[start];
+    for(int i=start;i<nums.length-1;++i){
+      if(nums[i]!=nums[i+1]){
+         val=count*val;
+         break;
+      }
+      ++count;
+    }
+    if(groupSumClump(start+count,nums,target-val))
+      return true;
+    if(groupSumClump(start+count,nums,target))
+      return true;
+    return false;
+}
+/**
+
+Given an array of ints, is it possible to divide the ints into two groups, so that the sums of the two groups are the same. Every int must be in one group or the other. Write a recursive helper method that takes whatever arguments you like, and make the initial call to your recursive helper from splitArray(). (No loops needed.) 
+
+splitArray({2, 2}) → true
+splitArray({2, 3}) → false
+splitArray({5, 2, 3}) → true
+*/
+public boolean splitArray(int[] nums) {
+  return helper(0,nums,0);
+}
+public boolean helper(int start,int[]nums,int sum)
+{
+   if(start>=nums.length)
+     return sum==0;
+   if(helper(start+1,nums,sum+nums[start]))
+     return true;
+   if(helper(start+1,nums,sum-nums[start]))
+     return true;
+   return false;
+}
+/**
+
+Given an array of ints, is it possible to divide the ints into two groups, so that the sum of the two groups is the same, with these constraints: all the values that are multiple of 5 must be in one group, and all the values that are a multiple of 3 (and not a multiple of 5) must be in the other. (No loops needed.) 
+
+split53({1,1}) → true
+split53({1, 1, 1}) → false
+split53({2, 4, 2}) → true
+*/
+public boolean split53(int[] nums) {
+    return helper(0,nums,0);
+}
+public boolean helper(int start,int []nums,int sum){
+   if(start>=nums.length)
+     return sum==0;
+   if(nums[start]%5==0)
+     return helper(start+1,nums,sum+nums[start]);
+   if(nums[start]%3==0)
+     return helper(start+1,nums,sum-nums[start]);
+   if(helper(start+1,nums,sum+nums[start]))
+     return true;
+   if(helper(start+1,nums,sum-nums[start]))
+     return true;
+   return false;
+}
