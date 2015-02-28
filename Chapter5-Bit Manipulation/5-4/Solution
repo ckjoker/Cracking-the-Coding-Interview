@@ -1,0 +1,8 @@
+ Explain what the following code does: ((n & (n-1)) == 0).
+ Solution:
+ A&B=0表明A和B所有位中没有一位同为1.
+  if n   = abcde1000
+then n-1 = abcdeO111
+所以 abcde=00000
+所以((n & (n-1)) == 0)说明n为2的整数次幂或0.
+
