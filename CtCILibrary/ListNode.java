@@ -5,4 +5,8 @@ public class ListNode{
        val=x;
        next=null;
 	}
+	public void addNext(int val){
+		
+		
+	}
 }
