@@ -7,5 +7,6 @@ public class ListNode{
 	}
 	public void addNext(int val){
 		
+		
 	}
 }
