@@ -6,7 +6,5 @@ public class ListNode{
        next=null;
 	}
 	public void addNext(int val){
-		
-		
 	}
 }
