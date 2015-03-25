@@ -45,13 +45,33 @@ public class Solution{
     }
     /*Solution 3:迭代 */
     /*
-     Method 4:双指针问题，
+    Method 4:双指针问题
+    Time:O(n) Space:O(1) 
     */
+    public static ListNode findKth4(ListNode head,int k){
+    	if(head==null)
+    		return null;
+    	ListNode fast=head;
+    	ListNode slow=head;
+    	for(int i=0;i<k-1;++i){
+    		if(fast==null)
+    			return null;            //k值不合法
+    		fast=fast.next;
+    	}
+    	if(fast==null)
+    		return null;                //k值不合法
+    	while(fast.next!=null){
+             fast=fast.next;
+             slow=slow.next;
+    	}
+    	return slow;
+    }
     public static void main(String[] args) {
     	int a[]={3,5,1,2,7,6};
     	ListNode l=ListNode.generateList(a);
         IntWrapper wr=new IntWrapper();
     	System.out.println(findKth3(l,4,wr).val);
+    	System.out.println(findKth4(l,4).val);
     }
 }
 
