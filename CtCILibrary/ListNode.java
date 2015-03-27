@@ -2,7 +2,7 @@
  public class ListNode{
  	public  int val;
  	public ListNode next;
- 	ListNode(int x){
+ 	public ListNode(int x){
  		val=x;
  		next=null;
  	}
@@ -41,12 +41,25 @@
  		}
  		return head;
  	}
+ 	public static ListNode insertAtEnd(ListNode head,ListNode node){
+ 		if(node==null)
+ 			return head;
+ 		if(head==null){
+ 			return node;
+ 		}
+ 		ListNode curr=head;
+ 		while(curr.next!=null){
+ 			curr=curr.next;
+ 		}
+ 		curr.next=node;
+ 		return head;
+ 	}
  	public static void main(String[] args) {
 /*		ListNode n1=new ListNode(1);
-		ListNode n2=new ListNode(3);
+		ListNodestNode n2=new ListNode(3);
 		ListNode n3=new ListNode(5);
 		ListNode n4=new ListNode(7);
-		ListNode n5=new ListNode(9);
+		ListNode n5=new ListNode(9);`
 		ListNode n6=new ListNode(2);
 		ListNode n7=new ListNode(4);
 		n1.next=n2;
@@ -55,17 +68,22 @@
 		n4.next=n5;
 		n5.next=n6;
 		n6.next=n7;*/
-		int []arr={5,6};
+		int []arr={0};
 		ListNode list=generateList(arr);
-		printList(list); 
-		list=deleteNode(list,7);
+		printList(list);
+		ListNode test1=new ListNode(1);
+		ListNode test2=new ListNode(2);
+		ListNode newList= insertAtEnd(list,test1);
+		insertAtEnd(newList,test2);
+		printList(newList); 
+/*		list=deleteNode(list,7);
 		printList(list);
 		list=deleteNode(list,5);
 		printList(list);
 		list=deleteNode(list,6);
 		printList(list);
 		list=deleteNode(list,6);
-		printList(list);
+		printList(list);*/
 
 	}
 }
