@@ -22,6 +22,9 @@ public class Solution{
         }
         return result;
 	}
+	public static ListNode addList2(){
+		
+	}
 	public static void main(String[] args) {
 		int []a={1,2,3,4};
         int []b={4,5,6};
