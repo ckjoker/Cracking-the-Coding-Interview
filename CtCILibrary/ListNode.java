@@ -68,6 +68,7 @@
 		n4.next=n5;
 		n5.next=n6;
 		n6.next=n7;*/
+
 		int []arr={0};
 		ListNode list=generateList(arr);
 		printList(list);
@@ -76,6 +77,7 @@
 		ListNode newList= insertAtEnd(list,test1);
 		insertAtEnd(newList,test2);
 		printList(newList); 
+		
 /*		list=deleteNode(list,7);
 		printList(list);
 		list=deleteNode(list,5);
