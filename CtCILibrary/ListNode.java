@@ -7,7 +7,6 @@
  		next=null;
  	}
  	ListNode(){
-
  	}
  	public static ListNode generateList(int []list){
  		ListNode head=new ListNode();
