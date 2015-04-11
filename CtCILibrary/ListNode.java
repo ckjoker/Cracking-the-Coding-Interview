@@ -85,6 +85,5 @@
 		printList(list);
 		list=deleteNode(list,6);
 		printList(list);*/
-
 	}
 }
